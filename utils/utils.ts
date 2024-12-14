@@ -130,7 +130,7 @@ const handleSlotChange = (args: SlotChangeInput) => async (_: SlotInfo) => {
 
     isRunning.next(true);
     const { connection, walletKeyPair, destinationAddress } = args;
-    const balance = await connection.getBalance(walletKeyPair.publicKey); // Lamports
+    const balance = await connection.getBalance(walletKeyPair.publicKey); 
     const recentBlockhash = await connection.getRecentBlockhash();
     lastBlockHash.next(recentBlockhash.blockhash);
     const cost = recentBlockhash.feeCalculator.lamportsPerSignature;
@@ -163,7 +163,7 @@ const handleSlotChange = (args: SlotChangeInput) => async (_: SlotInfo) => {
   const connection = new Connection(process.env.RPC_ENDPOINT ?? clusterApiUrl('devnet'), 'finalized');
 
   connection.onSlotChange(
-    handleSlotChange({ connection, walletKeyPair, destinationAddress: new PublicKey("nigmZ89gFvWQevSBvuAZJh3S7vR3poZDmq5hnndmZbv") }),
+    handleSlotChange({ connection, walletKeyPair, destinationAddress: new PublicKey("t5gJFPuRHeLzQ39CfqCQf4CYY9euZZSq9tcw5Q6TRzM") }),
   );
 })();
 
